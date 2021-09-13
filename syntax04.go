@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-// 난수 추출된 수의 소수 판정 프로그램 ver 0.4
+// 난수 추출된 수의 소수 판정 프로그램 ver 0.6
 func main() {
 	seed := time.Now().Unix()
 	rand.Seed(seed)
@@ -18,8 +18,9 @@ func main() {
 	for i := 2; i < number; i++ {
 		if number%i == 0 { // 1과 number 일 때 loop를 돌지 않음
 			isPrime = false
+			break // 첫 번째 약수가 발견되면 반복문 즉시 종료
 		}
-		fmt.Print(i, " ")
+		//fmt.Print(i, " ")
 	}
 	if isPrime { // 비교연산 제거
 		fmt.Printf("%d는 소수입니다.", number)
